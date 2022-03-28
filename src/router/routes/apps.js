@@ -17,6 +17,11 @@ export default [
     name: "apps-users-edit",
     component: () => import("@/views/apps/user/users-edit/UsersEdit.vue"),
   },
+  {
+    path: "/apps/agenda/agenda-list",
+    name: "agenda-list",
+    component: () => import("@/views/apps/agenda/AgendaList.vue"),
+  },
 
   // // Invoice
   // {

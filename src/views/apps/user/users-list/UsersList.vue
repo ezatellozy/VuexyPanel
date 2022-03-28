@@ -74,12 +74,7 @@
         :sort-desc.sync="isSortDirDesc"
       >
         <template #head(select)="data">
-          <b-form-checkbox
-            @change="
-              handleCheck(data);
-              data.selectAllRows();
-            "
-          ></b-form-checkbox>
+          <b-form-checkbox @change="handleCheck(data)"></b-form-checkbox>
         </template>
         <template v-slot:cell(select)="row">
           <b-form-checkbox
@@ -334,7 +329,13 @@ export default {
       console.log(selectedItem);
     }
     function handleCheck(data) {
-      console.log(data);
+      console.log(this.$refs.refUserListTable);
+      if (this.$refs.refUserListTable.selectedRows.length > 0) {
+        data.clearSelected();
+        // this.$refs.refUserListTable.clearSelected;
+      } else {
+        data.selectAllRows();
+      }
     }
 
     return {
